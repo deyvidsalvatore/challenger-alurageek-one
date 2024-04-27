@@ -157,6 +157,11 @@ input{
     align-items: center;
 }
 
+.produto {
+    width: 176px;
+    height: 174px;
+}
+
 
 /* Rodapé */
 #footer {
