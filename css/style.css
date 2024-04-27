@@ -54,9 +54,112 @@
     margin-left: 20px;
 }
 
+.formulario__container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+h2{
+    font-family: "Press Start 2P", system-ui;
+    width: 350px;
+    text-align: center;
+    margin: 50px auto;
+}
+
+.formulario__div {
+    margin: auto;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 350px;
+    gap: 40px;
+}
+
+input{
+    padding: 15px;
+    border-radius: 40px;
+    border: solid 2.9px #03318c;
+    color: #03318c;
+}
+
+::placeholder{
+    color: #03318c;
+    font-weight: 900;
+    font-family: "IBM Plex Mono", monospace;
+}
+
+.formulario__botoes {
+    width: 350px;
+    gap: 13px;
+
+}
+
+.btn__submit{
+    background: #03318c;
+    color: white;
+    width: 164px;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+.btn__reset {
+    width: 164px;
+    border-radius: 15px;
+    font-size: 20px;
+    background: white;
+}
+
+.produtos{
+    margin-left: 20px;
+}
+
+.secao {
+    display: flex;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.card{
+    background: #5D04D9;
+    width: 196px;
+    height: 240px;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 3px black;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.produto{
+    display: inline-block;
+}
+
+.card p{
+    color: white;
+    font-family: "IBM Plex Mono", monospace;
+}
+
+.nome__produto {
+    text-align: left;
+    margin-top: 2px;
+    font-weight: 200;
+}
+
+.preco__produto {
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
 /* Rodapé */
 #footer {
-    position: fixed;
     bottom: 0;
     width: 100%;
     height: 232px;
@@ -105,4 +208,56 @@
     text-transform: uppercase;
     line-height: 16px;
     word-wrap: break-word;
+}
+
+@media (min-width: 715px){
+
+    .produtos__container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+}
+
+@media (min-width: 1200px){
+
+    .main{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        align-items: baseline;
+
+        padding: 30px;
+    }
+
+    h2{
+        margin-bottom: 20px;
+    }
+
+    .produtos__container{
+        width: 720px;
+        margin: auto 5px;
+        box-shadow: -12px 12px 8px rgba(97, 97, 97, 0.648);
+    }
+
+    .secao {
+        display: flex;
+        gap: 10px;
+        overflow: hidden;
+    }
+
+}
+
+@media (max-width: 715px){
+    .secao {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%; 
+    }
 }
