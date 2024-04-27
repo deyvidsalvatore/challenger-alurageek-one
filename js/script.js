@@ -41,19 +41,20 @@ function exibirProdutos() {
 
                 produtosCounter++;
             });
+
+            // Adicionando event listener aos botões de lixeira após criar os cards de produto
+            document.querySelectorAll('.icone__lixeira').forEach(icone => {
+                icone.addEventListener('click', function(event) {
+                    const card = event.target.closest('.card');
+                    const produtoId = card.dataset.produtoId;
+
+                    if (confirm(`Tem certeza que deseja excluir o produto "${produtos[produtoId].nome}"?`)) {
+                        removerProduto(produtoId);
+                    }
+                });
+            });
         })
         .catch(error => console.error('Erro ao buscar os dados dos produtos:', error));
-
-    document.addEventListener('click', function(event) {
-        if (event.target.classList.contains('icone__lixeira')) {
-            const card = event.target.closest('.card');
-            const produtoId = card.dataset.produtoId;
-
-            if (confirm(`Tem certeza que deseja excluir o produto "${produtos[produtoId].nome}"?`)) {
-                removerProduto(produtoId);
-            }
-        }
-    });
 }
 
 
@@ -134,6 +135,16 @@ function criarCardProduto(produto) {
     card.appendChild(imagem);
     card.appendChild(nomeProduto);
     card.appendChild(precoProduto);
+
+    // Adicionando event listener ao botão de lixeira
+    iconeLixeira.addEventListener('click', function(event) {
+        const card = event.target.closest('.card');
+        const produtoId = card.dataset.produtoId;
+
+        if (confirm(`Tem certeza que deseja excluir o produto "${produto.nome}"?`)) {
+            removerProduto(produtoId);
+        }
+    });
 
     return card;
 }
